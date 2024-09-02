@@ -22,7 +22,7 @@ const FormComponent = () => {
         usernameRef.current?.focus()
     }
 
-    const handleInputChanges = (e) => {
+    const handleInputChanges = (e: ChangeEvent<HTMLInputElement>) => {
         const name = e.target.name
         const value = e.target.value
         setCurrentUser({ ...currentUser, [name]: value })
@@ -45,13 +45,13 @@ const FormComponent = () => {
         return true
     }
 
-    const joinRoom = (e) => {
-        e.preventDefault();
-        if (status === USER_STATUS.ATTEMPTING_JOIN) return;
-        if (!validateForm()) return;
-        toast.loading("Joining room...");
-        setStatus(USER_STATUS.ATTEMPTING_JOIN);
-        socket.emit(SocketEvent.JOIN_REQUEST, currentUser);
+    const joinRoom = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        if (status === USER_STATUS.ATTEMPTING_JOIN) return
+        if (!validateForm()) return
+        toast.loading("Joining room...")
+        setStatus(USER_STATUS.ATTEMPTING_JOIN)
+        socket.emit(SocketEvent.JOIN_REQUEST, currentUser)
     }
 
     useEffect(() => {
