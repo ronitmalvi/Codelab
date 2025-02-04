@@ -1,4 +1,4 @@
-# Code Sync
+# Codelab
 
 Codelab is a real-time code collaboration tool that allows multiple users to work on the same codebase simultaneously. It features syntax highlighting, auto-suggestions, seamless file editing, saving, and downloading. Additionally, it includes an integrated group chat for easy communication.
 
